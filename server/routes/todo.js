@@ -33,4 +33,50 @@ router.post("/todo", async (req, res) => {
   }
 });
 
+// PATCH localhost:PORT/todo/:todoId - edit a specific todo (UPDATE)
+// 수정 성공시: true -> res.send(true)
+// 수정 실패시: false -> res.send(false)
+
+router.patch("/todo/:todoId", async (req, res) => {
+  try {
+    let [isUpdated] = await Todo.update(
+      {
+        title: req.body.title,
+        done: req.body.done,
+      },
+      {
+        where: {
+          id: req.params.todoId,
+        },
+      }
+    );
+    console.log(isUpdated);
+    if (!isUpdated) {
+      return res.send(false);
+    }
+    res.send(true);
+  } catch (err) {
+    res.send(err);
+  }
+});
+
+router.delete("/todo/:todoId", async (req, res) => {
+  try {
+    let isDeleted = await Todo.destroy({
+      where: {
+        id: req.params.todoId,
+      },
+    });
+    // console.log("dddd", isDeleted); // 0
+    if (isDeleted) {
+      // 0
+      res.send(true);
+    } else {
+      res.send(false);
+    }
+  } catch (err) {
+    res.send(err);
+  }
+});
+
 module.exports = router;
