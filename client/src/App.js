@@ -36,12 +36,17 @@ const App = () => {
     // - B: newItem
   };
 
+  const deleteItem = (delItem) => {
+    const result = todoItems.filter((item) => item.id !== delItem);
+    setTodoItems(result);
+  };
+
   return (
     <div className="App">
       <AddTodo addItem={addItem} />
       {todoItems.map((item) => {
         // console.log(item); // {id: 1, title: 'My Todo1', done: false}
-        return <Todo key={item.id} item={item} />;
+        return <Todo key={item.id} item={item} deleteItem={deleteItem} />;
       })}
     </div>
   );
