@@ -29,6 +29,7 @@ const AddTodo = ({ addItem }) => {
         onChange={(e) => {
           setTodoItem({ title: e.target.value });
         }}
+        autoFocus
         onKeyPress={handleKeyPress}
       />
       <button onClick={onButtonClick}>+</button>

@@ -22,6 +22,9 @@
       font-size: 18pt;
       font-family: "BinggraeSamanco-Bold";
     }
+    &:focus {
+      outline: none !important;
+    }
   }
   button {
     font-size: 20pt;

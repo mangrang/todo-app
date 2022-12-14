@@ -50,6 +50,9 @@ Header {
     border: none;
     background: transparent;
     border-bottom: 2px solid whitesmoke;
+    &:focus {
+      outline: none !important;
+    }
   }
 
   button {

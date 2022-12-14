@@ -28,8 +28,8 @@ const App = () => {
   const addItem = (newItem) => {
     newItem.id = todoItems.length + 1;
     newItem.done = false;
-    if (newItem.title === "") {
-      newItem.title = `My Todo${newItem.id}`;
+    if (newItem.title.trim() === "") {
+      return;
     }
     setTodoItems([...todoItems, newItem]);
     // {title: 'xx'} <- id, done
