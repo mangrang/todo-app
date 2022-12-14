@@ -1,7 +1,7 @@
 // 1. 함수형 컴포넌트
 // 2. input과 button을 가짐
 import { useState } from "react";
-// import "../styles/Todo.scss";
+import "../styles/AddTodo.scss";
 
 const AddTodo = ({ addItem }) => {
   const [todoItem, setTodoItem] = useState({
@@ -31,7 +31,7 @@ const AddTodo = ({ addItem }) => {
         }}
         onKeyPress={handleKeyPress}
       />
-      <button onClick={onButtonClick}>ADD</button>
+      <button onClick={onButtonClick}>+</button>
     </div>
   );
 };

@@ -26,10 +26,12 @@ const App = () => {
   // => App 컴포넌트에 addItem() 함수를 정의하고, 해당 함수를 AddTodo props로 넘겨야 함
   // const [inputTodo, setInputTodo] = useState("");
   const addItem = (newItem) => {
-    newItem.id = Object.keys(todoItems).length + 1;
+    newItem.id = todoItems.length + 1;
     newItem.done = false;
+    if (newItem.title === "") {
+      newItem.title = `My Todo${newItem.id}`;
+    }
     setTodoItems([...todoItems, newItem]);
-
     // {title: 'xx'} <- id, done
     // setTodoItems([A, B])
     // - A: 기존 배열
@@ -43,7 +45,14 @@ const App = () => {
 
   return (
     <div className="App">
+      <header>✌My Todo App</header>
       <AddTodo addItem={addItem} />
+      {todoItems.length ? (
+        <div className="todoNum">🚀{todoItems.length} Todos</div>
+      ) : (
+        <div className="todoNum">🚀 현재 할일이 없습니다.</div>
+      )}
+
       {todoItems.map((item) => {
         // console.log(item); // {id: 1, title: 'My Todo1', done: false}
         return <Todo key={item.id} item={item} deleteItem={deleteItem} />;

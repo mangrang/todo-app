@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "BinggraeSamanco-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/BinggraeSamanco-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.AddTodo {
+  width: 100vw;
+  font-family: "BinggraeSamanco-Bold";
+  input {
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid blue;
+    width: 70%;
+    height: 5vh;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    font-size: 18pt;
+    font-family: "BinggraeSamanco-Bold";
+    &::placeholder {
+      font-size: 18pt;
+      font-family: "BinggraeSamanco-Bold";
+    }
+  }
+  button {
+    font-size: 20pt;
+    height: 6vh;
+    width: 6vh;
+    background-color: violet;
+    border: none;
+    color: white;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+    border-radius: 10px;
+    font-size: 25pt;
+  }
+}

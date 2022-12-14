@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Y_Spotlight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/Y_Spotlight.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BMEuljirooraeorae";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/BMEuljirooraeorae.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.cancelLine {
+  text-decoration: line-through wavy brown;
+}
+
+Header {
+  font-family: "BMEuljirooraeorae";
+  background-color: violet;
+  height: 7vh;
+  text-align: center;
+  font-size: 24pt;
+  line-height: 6.5vh;
+  color: white;
+  font-weight: 900;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Todo {
+  margin-left: 10vw;
+  width: 100vw;
+  .TodoText {
+    width: 66vw;
+    height: 4vh;
+    margin-left: 2vh;
+    font-size: 15pt;
+    font-family: "BinggraeSamanco-Bold";
+  }
+
+  input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    margin: auto 0;
+  }
+
+  input {
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid whitesmoke;
+  }
+
+  button {
+    font-size: 20pt;
+    height: 6vh;
+    width: 6vh;
+    border: none;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+    border-radius: 10px;
+  }
+}
+
+.todoNum {
+  font-size: 17pt;
+  margin-top: 7vh;
+  margin-left: 10vw;
+  margin-bottom: 4vh;
+  font-family: "Y_Spotlight";
+}
