@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const Todo = (props) => {
-  const { item, deleteItem } = props;
+  const { item, deleteItem, updateItem } = props;
   const [todoItem, setTodoItem] = useState(item);
   const [readOnly, setReadOnly] = useState(true);
   const deleteBtn = (id) => {
@@ -31,10 +31,15 @@ const Todo = (props) => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       setReadOnly(true);
+      updateItem(todoItem);
     }
   };
   const checkedChange = (e) => {
     const { done, ...rest } = todoItem;
+    const updatedItem = {
+      done: e.target.checked,
+      ...rest,
+    };
     console.log(e);
     console.log(e.target);
 
@@ -44,10 +49,8 @@ const Todo = (props) => {
     } else {
       TodoText.classList.remove("cancelLine");
     }
-    setTodoItem({
-      done: e.target.checked,
-      ...rest,
-    });
+    setTodoItem(updatedItem);
+    updateItem(updatedItem);
   };
 
   let TodoTextCL;
@@ -70,7 +73,6 @@ const Todo = (props) => {
         onClick={checkedChange}
       />
       {/* <label htmlFor={`todo${item.id}`}>{item.title}</label> */}
-
       <input
         type="text"
         className={TodoTextCL}
@@ -80,7 +82,6 @@ const Todo = (props) => {
         onClick={readChange}
         onKeyPress={handleKeyPress}
       />
-
       <button onClick={() => deleteBtn(item.id)}>
         <FontAwesomeIcon icon={faTrashCan} />
       </button>
