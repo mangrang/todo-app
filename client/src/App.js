@@ -10,7 +10,7 @@ const App = () => {
     console.log("첫 렌더링 완료!");
 
     const getTodos = async () => {
-      let result = await axios.get("http://localhost:8080/todos");
+      let result = await axios.get("http://13.125.72.31:8080/todos");
       console.log(result.data);
       return setTodoItems(result.data);
     };
@@ -29,7 +29,7 @@ const App = () => {
     }
 
     const postTodo = async () => {
-      let create = await axios.post("http://localhost:8080/todo", {
+      let create = await axios.post("http://13.125.72.31:8080/todo", {
         title: newItem.title,
       });
       return setTodoItems([...todoItems, create.data]);
@@ -50,7 +50,7 @@ const App = () => {
 
     // [After]
     // console.log(targetItem); // {id:x, title: xx, done: x}
-    await axios.delete(`http://localhost:8080/todo/${targetItem}`);
+    await axios.delete(`http://13.125.72.31:8080/todo/${targetItem}`);
     let newTodoItems = todoItems.filter((item) => item.id !== targetItem);
     setTodoItems(newTodoItems);
   };
@@ -59,7 +59,7 @@ const App = () => {
     console.log(targetItem);
     // axios.patch(url, data)
     await axios.patch(
-      `http://localhost:8080/todo/${targetItem.id}`,
+      `http://13.125.72.31:8080/todo/${targetItem.id}`,
       targetItem
     );
   };
